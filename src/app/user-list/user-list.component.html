@@ -1,0 +1,33 @@
+<div class="row">
+  <div class="col-md-12 title">
+    <h2>Lista de usuarios</h2>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Nombre de usuario</th>
+          <th scope="col">Correo</th>
+          <th scope="col">Nombre completo</th>
+          <th scope="col">Nombre disponible en slack</th>
+          <th scope="col">Ver Informe</th>
+        </tr>
+      </thead>
+      <tbody *ngIf="userList">
+        <tr *ngFor="let elem of userList;">
+          <td>{{elem.userName}}</td>
+          <td>{{elem.email}}</td>
+          <td>{{elem.fullName}}</td>
+          <td>{{elem.displayName}}</td>
+          <td>
+            <a routerLink="details/{{elem.userName}}/{{elem.fullName}}">
+              <button type="button" class="btn btn-outline-success text-center">Más información</button>
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

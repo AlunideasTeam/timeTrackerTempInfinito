@@ -1,0 +1,57 @@
+<div class="row">
+  <div class="col">
+    <a routerLink="/">
+      <button type="button" class="btn btn-outline-primary">Volver</button>
+    </a>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12 title">
+    <h2>Reporte de horas para {{name}}</h2>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Nombre de usuario</th>
+          <th scope="col">Día</th>
+          <th scope="col">Fecha y hora de inicio</th>
+          <th scope="col">Fecha y hora final</th>
+          <th scope="col">Total de horas por ese día</th>
+        </tr>
+      </thead>
+      <tbody *ngIf="userDetail">
+        <tr *ngFor="let elem of userDetail;">
+          <td>{{elem.userName}}</td>
+          <td>{{elem.day | date:'fullDate'}}</td>
+          <td>
+            <div *ngIf="elem.startTime">
+              {{elem.startTime | date:'shortTime'}}
+            </div>
+            <div *ngIf="!elem.startTime">
+              No se encontró registro de ingreso
+            </div>
+          </td>
+          <td>
+            <div *ngIf="elem.finalTime">
+              {{elem.finalTime | date:'shortTime'}}
+            </div>
+            <div *ngIf="!elem.finalTime">
+              No se encontró registro de salida
+            </div>
+          </td>
+          <td>
+            <div *ngIf="elem.totalTime">
+              {{elem.totalTime}}
+            </div>
+            <div *ngIf="!elem.totalTime">
+              No se puede calcular el total
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
