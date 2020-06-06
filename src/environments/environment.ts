@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  url: "https://api.infinito.group"
+  url: "http://localhost:3001"
 };
 
 /*
