@@ -53,7 +53,7 @@
           </td>
           <td>
             <div *ngIf="elem.lunchTime">
-              {{elem.totalTime}} <span *ngIf="elem.lunchTime != 'No hay' "> (HH:MM:SS) </span>
+              {{elem.lunchTime}} <span *ngIf="elem.lunchTime != 'No hay' "> (HH:MM:SS) </span>
             </div>
             <div *ngIf="!elem.lunchTime">
               No hay
