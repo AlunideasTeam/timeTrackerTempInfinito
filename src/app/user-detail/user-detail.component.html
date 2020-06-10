@@ -20,6 +20,7 @@
           <th scope="col">Fecha y hora de inicio</th>
           <th scope="col">Fecha y hora final</th>
           <th scope="col">Total de horas por ese día</th>
+          <th scope="col">Total de horas descontando el almuerzo</th>
         </tr>
       </thead>
       <tbody *ngIf="userDetail">
@@ -48,6 +49,14 @@
             </div>
             <div *ngIf="!elem.totalTime">
               No se puede calcular el total
+            </div>
+          </td>
+          <td>
+            <div *ngIf="elem.lunchTime">
+              {{elem.totalTime}} <span *ngIf="elem.lunchTime != 'No hay' "> (HH:MM:SS) </span>
+            </div>
+            <div *ngIf="!elem.lunchTime">
+              No hay
             </div>
           </td>
         </tr>
